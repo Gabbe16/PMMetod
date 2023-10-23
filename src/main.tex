@@ -1,0 +1,97 @@
+\documentclass[11p]{article}
+% Packages
+\usepackage{amsmath}
+\usepackage[demo]{graphicx}
+\usepackage{adjustbox}
+\usepackage{fancyheadings}
+\usepackage[swedish]{babel}
+\usepackage[
+    backend=biber,
+    style=authoryear-ibid,
+    sorting=ynt
+]{biblatex}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphics-2017-06-25}
+%Källor
+\addbibresource{references.bib}
+\graphicspath{ {./images/} }
+
+% Lite variabler
+\def\email{Gabrielnilsson.hogb@elev.ga.ntig.se}
+\def\foottitle{PMmall}
+\def\name{Gabriel Nilsson Högberg}
+
+\title{PM Metod \\ \small Gymnasiearbete}
+\author{\name}
+\date{\today}
+
+\begin{document}
+
+% fixar sidfot
+\lfoot{\footnotesize{\name \\ \email}}
+\rfoot{\footnotesize{\today}}
+\lhead{\sc\footnotesize\foottitle}
+\rhead{\nouppercase{\sc\footnotesize\leftmark}}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\footrulewidth}{0.2pt}
+
+% i Sverige har vi normalt inget indrag vid nytt stycke
+\setlength{\parindent}{0pt}
+% men däremot lite mellanrum
+\setlength{\parskip}{10pt}
+
+\maketitle
+
+\section{Metod}
+Tillgänglighetsstandarden idag har utökats enormt och förbättrar användarupplevelsen för alla.
+Inom Sverige har vi WCAG som riktlinjer och webbsidor bör följa och även uppnå de krav som riktlinjerna ger \textcite{Digg}.
+Det är för allas  bästa att dessa används för att förbättra sina och andras hemsidor så att alla kan använda dem.
+
+\begin{itemize}
+    \item Med hjälp av programmet AChecker går det att kontrollera en hemsida på WCAG 2.0 kraven och alla tre nivåer A, AA och AAA. Dessa nivåer anger ambitionsnivån på sidan och grunden för tillgänglighetskrav är AA.
+    \item Ett manuellt test kommer att göras för att utöka kraven till WCAG 2.1, alltså krav som inte står i WCAG 2.0 med hjälp av WAVE.
+    \item Det manuella testet kommer att undersöka ifall ARIA-referenser fungerar och om det finns alt-taggar på bilder, loggor och mer.
+    \item Lighthouse kommer att användas för att kolla sidornas prestanda, tillgänglighet och praxis.
+\end{itemize}
+
+För att undvika mänskliga misstag under undersökningen används utvärderingsverktyg.
+Det manuella testet kommer att göras eftersom det inte finns tillräckligt bra verktyg som kontrollerar WCAG 2.1 kriterierna.
+WAVE kommer att användas för att effektivisera manuella undersökningen med kontraster, ARIA-referenser och alt-taggar.
+Till sist kommer Lighthouse användas för att hitta problem som inte kan hittas av utvärderingsverktyg eller den manuella kontrollen.
+
+\subsection{Val av sidor}
+Sidorna som valdes för denna undersökning är:
+
+\begin{itemize}
+    \item eslov.se
+    \item goteborg.se
+    \item helsingborg.se
+    \item huddinge.se
+\end{itemize}
+
+\subsection{AChecker}
+AChecker är en rekommendation från \textcite{W3C} och används som en av tillgänglighets programmen för utvecklare.
+Programmet underlättar undersökningen av kraven inom WCAG 2.0 på alla tre nivåer A, AA och AAA.
+
+\subsection{Lighthouse}
+Sidorna som testas kommer köras 2 gånger med lighthouse för att få så bra data som möjligt på hemsidorna.
+Appar och annat kommer stängas av för att inte påverka och ifall något program är igång kommer det att skrivas ned.
+Sidorna körs två gånger för att kontrollera om det uppstår någon skillnad i resultaten.
+
+\subsection{Det manuella testet}
+Det manuella testet kommer att undersöka WCAG 2.1 eftersom programmen jag använt hittills inte täcker de kraven som står där.
+Därför kommer WAVE användas för att kolla ARIA-referenser, kontraster och sidornas kodstruktur.
+
+\subsection{Alt-taggar}
+För att undersöka alt-taggar kommer DevTools (inspektorn) användas för att se till att html koden innehåller alternativ text till bilder och att dem stämmer men också knappar med namn och att deras namn också stämmer.
+
+\subsection{Analysering}
+
+Allt data som insamlas kommer att jämföras och analyseras med riktlinjerna i både WCAG 2.1 och WCAG 2.0.
+Detta görs självklart för att se om webbsidorna följer dessa riktlinjer eller inte.
+
+\printbibliography
+
+\end{document}
